@@ -13,6 +13,7 @@ repositories {
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
 }
 
