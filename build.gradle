@@ -1,0 +1,31 @@
+apply plugin: 'java'
+
+group 'Sample-HelloWorld-Demo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+defaultTasks 'clean', 'test'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.6.0'
+    compile group: 'com.jayway.awaitility', name: 'awaitility', version: '1.7.0'
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.8.1'
+}
+
+task sample(type: Test) {
+    dependsOn clean, compileTestJava
+    useTestNG {
+    }
+}

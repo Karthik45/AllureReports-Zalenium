@@ -1,0 +1,23 @@
+selenium:
+
+  image: selenium/standalone-chrome-debug
+
+  container_name: selenium
+
+  ports:
+    - 4444:4444
+    - 5900:5900
+
+gradle:
+
+  image: gradle
+
+  container_name: gradle
+
+  volumes:
+    - .:/home/gradle
+
+  command: gradle clean build runTests
+
+  links:
+    - selenium:localhost
