@@ -7,7 +7,7 @@ import utils.LocalDriver;
 
 public class BaseTest {
 
-    public WebDriver driver;
+    WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
     public void beforeScenario() {

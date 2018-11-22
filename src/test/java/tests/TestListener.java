@@ -1,4 +1,4 @@
-package utils.Listerners;
+package tests;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import tests.BaseTest;
 
 public class TestListener extends BaseTest implements ITestListener {
 
@@ -22,26 +21,11 @@ public class TestListener extends BaseTest implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("ScreenShot Captured for " + getTestMethodName(result));
-
-        Object testClass = result.getInstance();
-        WebDriver driver = ((BaseTest) testClass).driver;
-
-        try {
-            if (driver instanceof WebDriver) {
-                System.out.println("Screenshot Captured");
-                saveScreenShotPNG(driver);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("ScreenShot Saved");
+        saveScreenShotPNG(driver);
     }
 
     @Override
