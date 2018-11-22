@@ -2,11 +2,9 @@ package tests;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.SamplePage;
 
-@Listeners({TestListener.class})
 @Epic("Sample")
 @Feature("Sample Tests")
 public class SampleTest extends BaseTest {
