@@ -34,6 +34,11 @@ public class AdditionTests extends BaseTest {
     public void test3() {
         cal.addition(4, 4, driver);
         cal.checkResultForAddition(10, driver);
-        cal.generalSkipForTesting();
+    }
+
+    @Test(enabled = false)
+    @Severity(SeverityLevel.CRITICAL)
+    public void test4() {
+
     }
 }

@@ -35,4 +35,10 @@ public class SubtractionTests extends BaseTest {
         cal.subtraction(2, 6, driver);
         cal.checkResultForAddition(0, driver);
     }
+
+    @Test(enabled = false)
+    @Severity(SeverityLevel.MINOR)
+    public void test4() {
+
+    }
 }

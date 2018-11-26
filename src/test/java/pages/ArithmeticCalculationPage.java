@@ -41,9 +41,4 @@ public class ArithmeticCalculationPage extends BasePage {
         }
         assertEquals(driver.findElement(By.cssSelector("#cwotbl")).getText().trim(), String.valueOf(result), "Result is wrong.");
     }
-
-    @Step("Step to be skipped.")
-    public void generalSkipForTesting() {
-        System.out.println("The Step to be skipped");
-    }
 }

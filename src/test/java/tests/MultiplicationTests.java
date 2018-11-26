@@ -35,4 +35,10 @@ public class MultiplicationTests extends BaseTest {
         cal.multiplication(5, 8, driver);
         cal.checkResultForAddition(40, driver);
     }
+
+    @Test(enabled = false)
+    @Severity(SeverityLevel.NORMAL)
+    public void test4() {
+
+    }
 }
