@@ -1,8 +1,8 @@
 package utils;
 
-import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -37,9 +37,9 @@ public class LocalDriver {
     }
 
     private void launchBrowser(String browser) throws Exception {
+        String mode = System.getProperty("mode") == null ? "local" : System.getProperty("mode");
         switch (browser) {
             case "chrome":
-                String mode = System.getProperty("mode") == null ? "local" : System.getProperty("mode");
                 switch (mode) {
                     case "cloud":
                         DesiredCapabilities chromeCaps = DesiredCapabilities.chrome();
@@ -51,57 +51,31 @@ public class LocalDriver {
                 }
                 break;
             case "firefox":
-                switch (System.getProperty("mode")) {
+                switch (mode) {
                     case "cloud":
                         DesiredCapabilities firefoxCaps = DesiredCapabilities.firefox();
                         webDriver = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), firefoxCaps);
                         break;
                     case "local":
-                        webDriver = new ChromeDriver();
+                        webDriver = new FirefoxDriver();
                         break;
                 }
+                break;
             default:
                 throw new Exception("Not a valid browser");
         }
     }
 
     private void setChromeDriverBasedOnOperatingSystem() {
-        if (isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromeDriverWin.exe");
-        }
-        if (isMac()) {
-            System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromeDriverMac");
-        }
-        if (isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromeDriverlin");
-        }
+        System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromedriver");
     }
 
     private void setFirefoxDriverBasedOnOperatingSystem() {
-        if (isWindows()) {
-            System.setProperty("webdriver.gecko.driver", "src/test/java/drivers/geckodriverWin.exe");
-        }
-        if (isMac()) {
-            System.setProperty("webdriver.gecko.driver", "src/test/java/drivers/geckodriverMac");
-        }
-        if (isLinux()) {
-            System.setProperty("webdriver.gecko.driver", "src/test/java/drivers/geckodriverLin");
-        }
+        System.setProperty("webdriver.gecko.driver", "src/test/java/drivers/geckodriver");
+
     }
 
     public WebDriver getDriver() {
         return webDriver;
-    }
-
-    private boolean isWindows() {
-        return SystemUtils.IS_OS_WINDOWS;
-    }
-
-    private boolean isLinux() {
-        return SystemUtils.IS_OS_LINUX;
-    }
-
-    private boolean isMac() {
-        return SystemUtils.IS_OS_MAC;
     }
 }
