@@ -2,6 +2,8 @@ package tests;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.ArithmeticCalculationPage;
@@ -28,6 +30,7 @@ public class SubtractionTests extends BaseTest {
     }
 
     @Test(description = "Sample Test to check subtraction of two numbers.", groups = {Categories.MINUS})
+    @Severity(SeverityLevel.MINOR)
     public void test3() {
         cal.subtraction(2, 6, driver);
         cal.checkResultForAddition(0, driver);
