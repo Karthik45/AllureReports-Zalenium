@@ -36,7 +36,7 @@ public class SubtractionTests extends BaseTest {
         cal.checkResultForAddition(0, driver);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = false, description = "Sample Skip Test", groups = {Categories.MINUS})
     @Severity(SeverityLevel.MINOR)
     public void test4() {
 

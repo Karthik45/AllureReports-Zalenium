@@ -36,7 +36,7 @@ public class MultiplicationTests extends BaseTest {
         cal.checkResultForAddition(40, driver);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = false, description = "Sample Skip Test", groups = {Categories.MULTIPLY})
     @Severity(SeverityLevel.NORMAL)
     public void test4() {
 
