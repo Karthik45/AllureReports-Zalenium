@@ -12,14 +12,14 @@ public class LocalDriver {
 
     private WebDriver webDriver;
 
-    public LocalDriver() {
+    public LocalDriver() throws InvalidBrowserException {
         String browser = System.getProperty("browser") == null ? "chrome" : System.getProperty("browser");
         System.out.println("Browser to be tested on == " + browser);
         try {
             setBrowserProperties(browser);
             launchBrowser(browser);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new InvalidBrowserException(browser);
         }
     }
 

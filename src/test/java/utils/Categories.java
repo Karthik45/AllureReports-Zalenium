@@ -1,9 +1,10 @@
 package utils;
 
 public class Categories {
-
-    public static final String ADD = "Addition";
-    public static final String MULTIPLY = "Multiplication";
-    public static final String MINUS = "Subtraction";
-
+    public static final String GOOGLE = "google";
+    public static final String SWIGGY = "swiggy";
+    public static final String FLIPKART = "flipkart";
+    public static final String AMAZON = "amazon";
+    public static final String TESTVAGRANT = "testvagrant";
+    public static final String SANITY = "sanity";
 }

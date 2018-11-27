@@ -31,12 +31,16 @@ dependencies {
 }
 
 task sample(type: Test) {
+    String tags = System.getProperty("tags")
+    tags = tags == null ? 'sanity' : tags
     dependsOn clean, compileTestJava
     useTestNG {
+        parallel = 'classes'
+        threadCount = 5
         useDefaultListeners = true
         suiteName = 'Sample Report of Allure'
-        testName = 'Sample Tests for Arithmetic Operations'
-        includeGroups 'Addition', 'Multiplication', 'Subtraction'
+        testName = 'Sample Tests for Navigation'
+        includeGroups tags
     }
 }
 
