@@ -1,4 +1,4 @@
-# Setting Allure Reports and Zalenium
+# Setting Allure Reports and Zalenium for Selenium TestNg Project
 
 In this project i have used selenium testng with support of allure reports and zalenium
 
