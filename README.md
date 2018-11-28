@@ -38,38 +38,38 @@ This project consists of web ui tests using Selenium, Gradle, TestNg Framework.
 
 * #### Run project in zalenium container and check allure reports ####
 
-a) **Using Docker Commands**
+  a) **Using Docker Commands**
 
-  1) Install [Docker](https://docs.docker.com/) in your machine
+    1) Install [Docker](https://docs.docker.com/) in your machine
 
-  2) Pull docker images
+    2) Pull docker images
 
-     *  **docker pull gradle** 
-     *  **docker pull elgalu/selenium**
-     *  **docker pull dosel/zalenium**
+       *  **docker pull gradle** 
+       *  **docker pull elgalu/selenium**
+       *  **docker pull dosel/zalenium**
 
-  3) Trigger the zalenium container using command:
+    3) Trigger the zalenium container using command:
 
-      * **docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock \
-          -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start**
+        * **docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock \
+            -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start**
 
-  4) Move to the project in local where we cloned the repo.        
+    4) Move to the project in local where we cloned the repo.        
 
-  5) Now trigger gradle container and link with zalenium container and run tests using command:
+    5) Now trigger gradle container and link with zalenium container and run tests using command:
 
-      * **docker run --link zalenium:localhost -v "$PWD":/home/gradle/ -w /home/gradle gradle gradle clean build sample -   Dmode=cloud**
+        * **docker run --link zalenium:localhost -v "$PWD":/home/gradle/ -w /home/gradle gradle gradle clean build sample -   Dmode=cloud**
 
-  6) Now check reports using command:
+    6) Now check reports using command:
 
-      * **allure serve /path-to-your-project/build/allure-results**
+        * **allure serve /path-to-your-project/build/allure-results**
 
 
-b) **Using Docker Compose File**      
+  b) **Using Docker Compose File**      
 
-  1) Follow same Steps (i) and (ii) as docker commands.
+    1) Follow same Steps (i) and (ii) as docker commands.
 
-  2) Run Docker Compose file using command:
+    2) Run Docker Compose file using command:
 
-     * **docker-compose -f docker-compose-zalenium.yml up**
+       * **docker-compose -f docker-compose-zalenium.yml up**
 
-  3) For Checking results in allure reports follow Step (vi) as docker commands. 
+    3) For Checking results in allure reports follow Step (vi) as docker commands. 
