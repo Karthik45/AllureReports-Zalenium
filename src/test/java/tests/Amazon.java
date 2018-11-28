@@ -16,31 +16,31 @@ public class Amazon extends BaseTest {
     private NavigatorPage page = new NavigatorPage();
     private String url = SiteUrl.amazon;
 
-    @Test(description = "Navigating to Amazon", groups = {Categories.AMAZON, Categories.SANITY})
+    @Test(description = "Navigating to Amazon About", groups = {Categories.AMAZON, Categories.SANITY})
     public void test1() {
-        page.navigateTo(url, driver);
+        page.navigateTo("https://www.aboutamazon.in/", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Amazon", groups = {Categories.AMAZON, Categories.SANITY})
+    @Test(description = "Navigating to Amazon Jobs", groups = {Categories.AMAZON, Categories.SANITY})
     public void test2() {
-        page.navigateTo(url, driver);
+        page.navigateTo("https://www.amazon.jobs/en-gb", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Amazon", groups = {Categories.AMAZON, Categories.SANITY})
+    @Test(description = "Navigating to Amazon Advertise page", groups = {Categories.AMAZON, Categories.SANITY})
     public void test3() {
-        page.navigateTo(url, driver);
+        page.navigateTo("https://advertising.amazon.in/", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Amazon", groups = {Categories.AMAZON, Categories.SANITY})
+    @Test(description = "Navigating to Amazon Pay", groups = {Categories.AMAZON, Categories.SANITY})
     public void test4() {
-        page.navigateTo(url, driver);
+        page.navigateTo("https://www.amazonpay.in", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Amazon", groups = {Categories.AMAZON, Categories.SANITY})
+    @Test(description = "Navigating to Amazon India", groups = {Categories.AMAZON, Categories.SANITY, Categories.SMOKE})
     public void test5() {
         page.navigateTo(url, driver);
         page.failTest();

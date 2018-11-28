@@ -17,33 +17,33 @@ public class Flipkart extends BaseTest {
     private NavigatorPage page = new NavigatorPage();
     private String url = SiteUrl.flipkart;
 
-    @Test(description = "Navigating to Flipkart", groups = {Categories.FLIPKART, Categories.SANITY})
+    @Test(description = "Navigating to Flipkart About us Page", groups = {Categories.FLIPKART, Categories.SANITY, Categories.SMOKE})
     public void test1() {
-        page.navigateTo(url, driver);
+        page.navigateTo("https://www.flipkart.com/about-us", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Flipkart", groups = {Categories.FLIPKART, Categories.SANITY})
+    @Test(description = "Navigating to Flipkart Careers", groups = {Categories.FLIPKART, Categories.SANITY})
     public void test2() {
-        page.navigateTo(url, driver);
+        page.navigateTo("http://www.flipkartcareers.com", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Flipkart", groups = {Categories.FLIPKART, Categories.SANITY})
+    @Test(description = "Navigating to Flipkart Stories Page", groups = {Categories.FLIPKART, Categories.SANITY})
     public void test3() {
-        page.navigateTo(url, driver);
+        page.navigateTo("http://www.stories.flipkart.com", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Flipkart", groups = {Categories.FLIPKART, Categories.SANITY})
+    @Test(description = "Navigating to Flipkart Payments Page", groups = {Categories.FLIPKART, Categories.SANITY})
     public void test4() {
-        page.navigateTo(url, driver);
+        page.navigateTo("https://www.flipkart.com/pages/payments", driver);
         page.failTest();
     }
 
-    @Test(description = "Navigating to Flipkart", groups = {Categories.FLIPKART, Categories.SANITY})
+    @Test(description = "Navigating to Flipkart Shipping Page", groups = {Categories.FLIPKART, Categories.SANITY})
     public void test5() {
-        page.navigateTo(url, driver);
+        page.navigateTo("https://www.flipkart.com/pages/shipping", driver);
         page.failTest();
     }
 }

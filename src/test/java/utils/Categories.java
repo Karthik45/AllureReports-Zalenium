@@ -7,4 +7,5 @@ public class Categories {
     public static final String AMAZON = "amazon";
     public static final String TESTVAGRANT = "testvagrant";
     public static final String SANITY = "sanity";
+    public static final String SMOKE = "smoke";
 }

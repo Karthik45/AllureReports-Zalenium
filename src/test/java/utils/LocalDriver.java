@@ -19,7 +19,7 @@ public class LocalDriver {
             setBrowserProperties(browser);
             launchBrowser(browser);
         } catch (Exception e) {
-            throw new InvalidBrowserException(browser);
+            e.printStackTrace();
         }
     }
 
@@ -37,13 +37,14 @@ public class LocalDriver {
     }
 
     private void launchBrowser(String browser) throws Exception {
-        String mode = System.getProperty("mode") == null ? "local" : System.getProperty("mode");
+        String mode = System.getProperty("mode") == null ? "cloud" : System.getProperty("mode");
+        System.out.println("Mode:------------------------------    " + mode);
         switch (browser) {
             case "chrome":
                 switch (mode) {
                     case "cloud":
                         DesiredCapabilities chromeCaps = DesiredCapabilities.chrome();
-                        webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeCaps);
+                        webDriver = new RemoteWebDriver(new URL("http://172.19.0.2:4444/wd/hub"), chromeCaps);
                         break;
                     case "local":
                         webDriver = new ChromeDriver();
@@ -54,7 +55,7 @@ public class LocalDriver {
                 switch (mode) {
                     case "cloud":
                         DesiredCapabilities firefoxCaps = DesiredCapabilities.firefox();
-                        webDriver = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), firefoxCaps);
+                        webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxCaps);
                         break;
                     case "local":
                         webDriver = new FirefoxDriver();

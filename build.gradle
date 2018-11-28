@@ -36,16 +36,23 @@ task sample(type: Test) {
     dependsOn clean, compileTestJava
     useTestNG {
         parallel = 'classes'
-        threadCount = 5
+        threadCount = 3
         useDefaultListeners = true
-        suiteName = 'Sample Report of Allure'
+        suiteName = 'Sample Report of Allure for Sanity'
         testName = 'Sample Tests for Navigation'
         includeGroups tags
     }
 }
 
 task testing(type: Test) {
-    useTestNG {}
+    useTestNG {
+        parallel = 'classes'
+        threadCount = 3
+        useDefaultListeners = true
+        suiteName = 'Sample Report of Allure for Smoke123'
+        testName = 'Sample Tests for Smoke Tests'
+        includeGroups 'smoke'
+    }
 }
 
 allure {
