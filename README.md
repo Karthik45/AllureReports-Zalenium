@@ -26,54 +26,54 @@ This project consists of web ui tests using Selenium, Gradle, TestNg Framework.
 
 * #### Run project in local system and check allure reports ####
 
-  1) Clone this repo.
+1) Clone this repo.
 
-  2) Run Command - **gradle clean build sample -Dmode=local -Dbrowser=browserName -Dtags=tagName**.
+2) Run Command - **gradle clean build sample -Dmode=local -Dbrowser=browserName -Dtags=tagName**.
 
-  3) Install Allure in macOs using command - **brew install allure**
+3) Install Allure in macOs using command - **brew install allure**
 
-  4) After tests are done run command - **allure serve /path-to-your-project/build/allure-results**
+4) After tests are done run command - **allure serve /path-to-your-project/build/allure-results**
 
 **Note:** We provided support for chrome and firefox for macOs. And by default takes chrome browser and sanity tag.
 
 * #### Run project in zalenium container and check allure reports ####
 
-  * **Using Docker Commands**
+* **Using Docker Commands**
 
-    1) Install [Docker](https://docs.docker.com/) in your machine
+1) Install [Docker](https://docs.docker.com/) in your machine
 
-    2) Pull docker images
+2) Pull docker images
 
-       *  **docker pull gradle** 
-       *  **docker pull elgalu/selenium**
-       *  **docker pull dosel/zalenium**
+   *  **docker pull gradle** 
+   *  **docker pull elgalu/selenium**
+   *  **docker pull dosel/zalenium**
 
-    3) Trigger the zalenium container using command:
+3) Trigger the zalenium container using command:
 
-        * **docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock \
-            -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start**
+    * **docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock \
+        -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start**
 
-    4) Move to the project in local where we cloned the repo.        
+4) Move to the project in local where we cloned the repo.        
 
-    5) Now trigger gradle container and link with zalenium container and run tests using command:
+5) Now trigger gradle container and link with zalenium container and run tests using command:
 
-        * **docker run --link zalenium:localhost -v "$PWD":/home/gradle/ -w /home/gradle gradle gradle clean build sample -   Dmode=cloud**
+    * **docker run --link zalenium:localhost -v "$PWD":/home/gradle/ -w /home/gradle gradle gradle clean build sample -   Dmode=cloud**
 
-    6) After done copy the results from gradle container to local system using command:
+6) After done copy the results from gradle container to local system using command:
 
-        * **docker co <gradle-Container_id>:/home/gradle/build/allure-results /path-to-save-in-local-system**
+    * **docker co <gradle-Container_id>:/home/gradle/build/allure-results /path-to-save-in-local-system**
 
-    7) Now check reports using command:
+7) Now check reports using command:
 
-        * **allure serve /path-you-saved-reports-in-local-system**
+    * **allure serve /path-you-saved-reports-in-local-system**
 
 
-  * **Using Docker Compose File**      
+* **Using Docker Compose File**      
 
-    1) Follow same Steps (i) and (ii) as docker commands.
+1) Follow same Steps (i) and (ii) as docker commands.
 
-    2) Run Docker Compose file using command:
+2) Run Docker Compose file using command:
 
-       * **docker-compose -f docker-compose-zalenium.yml up**
+   * **docker-compose -f docker-compose-zalenium.yml up**
 
-    3) For Checking results in allure reports follow Steps (vi) and (vii) as docker commands. 
+3) For Checking results in allure reports follow Steps (vi) and (vii) as docker commands. 
